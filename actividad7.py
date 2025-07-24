@@ -31,6 +31,14 @@ def area_rectangulo(base,altura):
     return base*altura
 def perimetro_rectangulo(base,altura):
     return 2 * (base+altura)
+def es_primo(n):
+    if n <2:
+        return False
+    divisores=0
+    for i in range(1,n+1):
+        if n %i==0:
+            divisores+=1
+    return divisores == 2
 while True:
     print("-"*20)
     print("1. Operaciones con n numeros")
@@ -52,3 +60,9 @@ while True:
             altura=int(input("Ingrese la altura del rectangulo: "))
             print(f"El area del rectangulo es {area_rectangulo(base,altura)}")
             print(f"El perimetro del rectangulo es {perimetro_rectangulo(base,altura)}")
+        case "3":
+            n=int(input("Ingrese un numero: "))
+            if es_primo(n):
+                print("El numero es primo")
+            else:
+                print("El numero no es primo")
