@@ -4,6 +4,12 @@ def cantidad_numeros(cantidad):
         num  = int(input("Ingrese un numero: "))
         numeros.append(num)
     return numeros
+def cantidad_calificaciones(cantidad):
+    calificaciones = []
+    for i in range(cantidad):
+        calificacion  = int(input("Ingrese una calificacion: "))
+        calificaciones.append(calificacion)
+    return calificaciones
 def suma_promedio_cantidad_multiplo_3(numeros):
     suma =0
     for i in numeros:
@@ -39,6 +45,19 @@ def es_primo(n):
         if n %i==0:
             divisores+=1
     return divisores == 2
+def promedio_calificaciones(calificaciones):
+    suma =0
+    mayores=0
+    riesgo=0
+    for i in calificaciones:
+        suma +=i
+        if i >=85:
+            mayores+=1
+        else:
+            riesgo +=1
+    promedio = suma/len(calificaciones)
+    return f"El promedio de las calificaciones es {promedio:.2f} en donde {mayores} son mayores o iguales a 85 y {riesgo} estan en zona de riesgo"
+
 while True:
     print("-"*20)
     print("1. Operaciones con n numeros")
@@ -66,3 +85,7 @@ while True:
                 print("El numero es primo")
             else:
                 print("El numero no es primo")
+        case "4":
+            cantidad = int(input("Ingrese la cantidad de calificaciones: "))
+            calificaciones =cantidad_calificaciones(cantidad)
+            print(promedio_calificaciones(calificaciones))
