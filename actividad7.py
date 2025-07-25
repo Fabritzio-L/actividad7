@@ -78,7 +78,42 @@ def mayor_menor_frecuencia(numeros):
                 repetidos+=1
             vistos.append(actual)
     return f"El mayor es {mayor}, el menor es {menor} y {repetidos} numeros se repiten"
-
+def calculadora():
+    while True:
+        print("-"*20)
+        print("Menu calculadora")
+        print("1. Sumar")
+        print("2. Restar")
+        print("3. Multiplicar")
+        print("4. Dividir")
+        print("5. Volver al menu principal")
+        print("-" * 20)
+        operacion= input("Elija una de las operaciones: ")
+        match operacion:
+            case "1":
+                a = int(input("Ingrese un numero: "))
+                b = int(input("Ingrese un numero: "))
+                print(a+b)
+            case "2":
+                a = int(input("Ingrese un numero: "))
+                b = int(input("Ingrese un numero: "))
+                print(a-b)
+            case "3":
+                a = int(input("Ingrese un numero: "))
+                b = int(input("Ingrese un numero: "))
+                print(a*b)
+            case "4":
+                a = int(input("Ingrese un numero: "))
+                b = int(input("Ingrese un numero: "))
+                if b==0:
+                    print("Error, no se puede dividir entre 0")
+                else:
+                    print(a/b)
+            case "5":
+                print("Volviendo al menu principal")
+                break
+            case _:
+                print("opcion invalida")
 while True:
     print("-"*20)
     print("1. Operaciones con n numeros")
@@ -86,8 +121,8 @@ while True:
     print("3. Verificar si un numero es primo")
     print("4. Calcular promedio de calificaciones")
     print("5. Encontrar mayor, menor y frecuancia de n numeros")
-    print("5. Calculadora de operaciones básicas")
-    print("6. Salir del programa.")
+    print("6. Calculadora de operaciones básicas")
+    print("7. Salir del programa.")
     print("-"*20)
     opcion=input("Ingrese una de las opciones: ")
     match opcion:
@@ -114,3 +149,9 @@ while True:
             cantidad = int(input("Ingrese la cantidad de numeros: "))
             numeros = cantidad_numeros(cantidad)
             print(mayor_menor_frecuencia(numeros))
+        case "6":
+            calculadora()
+        case "7":
+            print("Saliendo del programa...")
+        case _:
+            print("Error, ingrese una opcion valida")
