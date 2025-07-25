@@ -12,23 +12,21 @@ def cantidad_calificaciones(cantidad):
     return calificaciones
 def suma_promedio_cantidad_multiplo_3(numeros):
     suma =0
+    positivos = 0
+    negativos = 0
+    ceros = 0
+    multiplos_3 = 0
     for i in numeros:
         suma +=i
-    promedio = suma/len(numeros)
-    positivos=0
-    negativos=0
-    ceros=0
-    multiplos_3=0
-    for i in numeros:
+        if i % 3 == 0:
+            multiplos_3 += 1
         if i < 0:
             negativos +=1
         elif i>0:
             positivos+=1
         else:
             ceros +=1
-    for i in numeros:
-        if i %3==0:
-            multiplos_3+=1
+    promedio = suma/len(numeros)
     print(f"La suma de los numeros es {suma}")
     print(f"El promedio de los numeros es {promedio:.2f}")
     print(f"Hay {positivos} positivos, {negativos} negativos y hay {ceros} ceros")
@@ -153,5 +151,6 @@ while True:
             calculadora()
         case "7":
             print("Saliendo del programa...")
+            break
         case _:
             print("Error, ingrese una opcion valida")
