@@ -57,6 +57,27 @@ def promedio_calificaciones(calificaciones):
             riesgo +=1
     promedio = suma/len(calificaciones)
     return f"El promedio de las calificaciones es {promedio:.2f} en donde {mayores} son mayores o iguales a 85 y {riesgo} estan en zona de riesgo"
+def mayor_menor_frecuencia(numeros):
+    mayor = numeros[0]
+    menor = numeros[0]
+    for i in numeros:
+        if i > mayor:
+            mayor =i
+        elif i < menor:
+            menor = i
+    vistos=[]
+    repetidos =0
+    for i in range(len(numeros)):
+        actual = numeros[i]
+        if actual not in vistos:
+            frecuencia=0
+            for j in range(len(numeros)):
+                if numeros[j]==actual:
+                    frecuencia +=1
+            if frecuencia >1:
+                repetidos+=1
+            vistos.append(actual)
+    return f"El mayor es {mayor}, el menor es {menor} y {repetidos} numeros se repiten"
 
 while True:
     print("-"*20)
@@ -89,3 +110,7 @@ while True:
             cantidad = int(input("Ingrese la cantidad de calificaciones: "))
             calificaciones =cantidad_calificaciones(cantidad)
             print(promedio_calificaciones(calificaciones))
+        case "5":
+            cantidad = int(input("Ingrese la cantidad de numeros: "))
+            numeros = cantidad_numeros(cantidad)
+            print(mayor_menor_frecuencia(numeros))
